@@ -28,4 +28,24 @@ public class incomingCircle : MonoBehaviour
     {
         return myBubbles;
     }
+
+    public void RotateLeft()
+    {
+        bubble temp = myBubbles[0];
+        for (int i = 0; i < myBubbles.Length - 1; i++)
+        {
+            myBubbles[i] = myBubbles[i+1];
+        }
+        myBubbles[myBubbles.Length - 1] = temp;
+    }
+
+    public void RotateRight()
+    {
+        bubble temp = myBubbles[myBubbles.Length - 1];
+        for (int i = myBubbles.Length - 1; i > 0; i--)
+        {
+            myBubbles[i] = myBubbles[i - 1];
+        }
+        myBubbles[0] = temp;
+    }
 }
