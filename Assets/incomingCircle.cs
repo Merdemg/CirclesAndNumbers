@@ -8,7 +8,7 @@ public class incomingCircle : MonoBehaviour
     [SerializeField] float speed = 1.1f;
 
     bool isRotating = false;
-    const float ROTATION_SPEED = 1f;
+    const float ROTATION_SPEED = 2f;
     [SerializeField] float targetAngle = 0;
     float counter = 0;
     float prevAngle = 0;
@@ -35,6 +35,19 @@ public class incomingCircle : MonoBehaviour
 
             float angle = Mathf.LerpAngle(prevAngle, targetAngle, counter);
             transform.eulerAngles = new Vector3(0, 0, angle);
+        }
+
+
+        //debug
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RotateRight();
+            RotateArrayRight();
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            RotateLeft();
+            RotateArrayLeft();
         }
     }
 
@@ -66,7 +79,7 @@ public class incomingCircle : MonoBehaviour
     {
         counter = 0;
         prevAngle = this.transform.eulerAngles.z;
-        targetAngle += 45;
+        targetAngle -= 45;
         FixTargetAngle();
         isRotating = true;
     }
@@ -86,21 +99,30 @@ public class incomingCircle : MonoBehaviour
 
     public void RotateArrayLeft()
     {
-        bubble temp = myBubbles[0];
-        for (int i = 0; i < myBubbles.Length - 1; i++)
+        //bubble temp = myBubbles[0];
+        //for (int i = 0; i < myBubbles.Length - 1; i++)
+        //{
+        //    myBubbles[i] = myBubbles[i+1];
+        //}
+        //myBubbles[myBubbles.Length - 1] = temp;
+
+        foreach (bubble b in myBubbles)
         {
-            myBubbles[i] = myBubbles[i+1];
+            b.rotateLeft();
         }
-        myBubbles[myBubbles.Length - 1] = temp;
     }
 
     public void RotateArrayRight()
     {
-        bubble temp = myBubbles[myBubbles.Length - 1];
-        for (int i = myBubbles.Length - 1; i > 0; i--)
+        //bubble temp = myBubbles[myBubbles.Length - 1];
+        //for (int i = myBubbles.Length - 1; i > 0; i--)
+        //{
+        //    myBubbles[i] = myBubbles[i - 1];
+        //}
+        //myBubbles[0] = temp;
+        foreach (bubble b in myBubbles)
         {
-            myBubbles[i] = myBubbles[i - 1];
+            b.rotateRight();
         }
-        myBubbles[0] = temp;
     }
 }

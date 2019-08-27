@@ -52,6 +52,16 @@ public class bubble : MonoBehaviour
         return myPos;
     }
 
+    public void rotateRight()
+    {
+        myPos += 1;
+    }
+
+    public void rotateLeft()
+    {
+        myPos -= 1;
+    }
+
     public int getValue()
     {
         return value;
