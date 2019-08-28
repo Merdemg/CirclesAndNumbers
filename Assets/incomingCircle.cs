@@ -66,7 +66,7 @@ public class incomingCircle : MonoBehaviour
         return myBubbles;
     }
 
-    void RotateLeft()
+    public void RotateLeft()
     {
         counter = 0;
         prevAngle = this.transform.eulerAngles.z;
@@ -75,7 +75,7 @@ public class incomingCircle : MonoBehaviour
         isRotating = true;
     }
 
-    void RotateRight()
+    public void RotateRight()
     {
         counter = 0;
         prevAngle = this.transform.eulerAngles.z;
@@ -97,7 +97,7 @@ public class incomingCircle : MonoBehaviour
         }
     }
 
-    public void RotateArrayLeft()
+    void RotateArrayLeft()
     {
         //bubble temp = myBubbles[0];
         //for (int i = 0; i < myBubbles.Length - 1; i++)
@@ -112,7 +112,7 @@ public class incomingCircle : MonoBehaviour
         }
     }
 
-    public void RotateArrayRight()
+    void RotateArrayRight()
     {
         //bubble temp = myBubbles[myBubbles.Length - 1];
         //for (int i = myBubbles.Length - 1; i > 0; i--)

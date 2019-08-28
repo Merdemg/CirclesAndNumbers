@@ -5,11 +5,13 @@ using UnityEngine;
 public class maincircle : MonoBehaviour
 {
     bubble[] myBubbles;
+    gameManager manager;
 
     // Start is called before the first frame update
     void Start()
     {
         myBubbles = GetComponentsInChildren<bubble>();
+        manager = FindObjectOfType<gameManager>();
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class maincircle : MonoBehaviour
     }
 
     private void OnCollisionStay2D(Collision2D collision)
-    {
+    {   // DOESNT WORK!!!
         Debug.Log("bla");
 
         if (collision.gameObject.GetComponent<incomingCircle>())
@@ -39,6 +41,7 @@ public class maincircle : MonoBehaviour
             }
 
             Destroy(collision.gameObject);
+            manager.SpawnIncCircle();
         }
     }
 
@@ -60,5 +63,6 @@ public class maincircle : MonoBehaviour
         }
 
         Destroy(other.gameObject);
+        manager.SpawnIncCircle();
     }
 }

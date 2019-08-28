@@ -95,7 +95,7 @@ public class SwipeController : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 m_touchUpPos = touch.position;
-                DetectSwipe();
+                //DetectSwipe();
             }
 
             if (touch.phase == TouchPhase.Ended)
