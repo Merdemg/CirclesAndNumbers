@@ -315,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incCirclePrefab: {fileID: 1974032618455875161, guid: f3599a9c97dd56146abc945a45a6c956,
     type: 3}
+  currentIncoming: {fileID: 0}
 --- !u!114 &1561779060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,75 +332,6 @@ MonoBehaviour:
   m_tracerObj: {fileID: 0}
   m_bIsTracerActive: 0
   m_minSwipeThreshold: 5
---- !u!1001 &23623425585765383
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1974032618455875161, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_Name
-      value: IncomingCircle
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974032618455875162, guid: f3599a9c97dd56146abc945a45a6c956,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f3599a9c97dd56146abc945a45a6c956, type: 3}
 --- !u!1001 &3864481754812668329
 PrefabInstance:
   m_ObjectHideFlags: 0

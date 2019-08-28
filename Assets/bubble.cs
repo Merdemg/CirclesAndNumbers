@@ -17,7 +17,7 @@ public class bubble : MonoBehaviour
     [SerializeField] position myPos;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         textBox = GetComponentInChildren<TextMeshProUGUI>();
         updateUI();
@@ -65,6 +65,12 @@ public class bubble : MonoBehaviour
     public int getValue()
     {
         return value;
+    }
+
+    public void SetValue(int v)
+    {
+        value = v;
+        updateUI();
     }
 
     public void collide(int v)
