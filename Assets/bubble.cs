@@ -54,12 +54,26 @@ public class bubble : MonoBehaviour
 
     public void rotateRight()
     {
-        myPos += 1;
+        if (myPos == position.topLeft)
+        {
+            myPos = position.top;
+        }
+        else
+        {
+            myPos += 1;
+        }
     }
 
     public void rotateLeft()
     {
-        myPos -= 1;
+        if (myPos == position.top)
+        {
+            myPos = position.topLeft;
+        }
+        else
+        {
+            myPos -= 1;
+        }
     }
 
     public int getValue()

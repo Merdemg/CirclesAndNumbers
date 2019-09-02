@@ -42,12 +42,10 @@ public class incomingCircle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             RotateRight();
-            RotateArrayRight();
         }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             RotateLeft();
-            RotateArrayLeft();
         }
     }
 
@@ -73,6 +71,8 @@ public class incomingCircle : MonoBehaviour
         targetAngle += 45;
         FixTargetAngle();
         isRotating = true;
+
+        RotateArrayLeft();
     }
 
     public void RotateRight()
@@ -82,6 +82,8 @@ public class incomingCircle : MonoBehaviour
         targetAngle -= 45;
         FixTargetAngle();
         isRotating = true;
+
+        RotateArrayRight();
     }
 
     void FixTargetAngle()
