@@ -15,6 +15,7 @@ public struct SwipeInfo
     public Vector2 SwipeStartPos;
     public Vector2 SwipeEndPos;
     public ESwipeDirection SwipeDirection;
+    public bool isEnd;
 }
 
 // Enum holding the directions in which a user can swipe.
@@ -95,13 +96,13 @@ public class SwipeController : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 m_touchUpPos = touch.position;
-                //DetectSwipe();
+                DetectSwipe(); // Comment this out if you only wanna detect the swipe once it's done
             }
 
             if (touch.phase == TouchPhase.Ended)
             {
                 m_touchUpPos = touch.position;
-                DetectSwipe();
+                DetectSwipe(true);
             }
         }
     }
@@ -109,19 +110,19 @@ public class SwipeController : MonoBehaviour
     /*
     * Set swipe direction based on y and x values of end - start.
     */
-    private void DetectSwipe()
+    private void DetectSwipe(bool isEnd = false)
     {
         if (VertDist() > m_minSwipeThreshold || HorDist() > m_minSwipeThreshold)
         {
             if (IsVertSwipe())
             {
                 ESwipeDirection dir = m_touchDownPos.y - m_touchUpPos.y > 0 ? ESwipeDirection.Swipe_Down : ESwipeDirection.Swipe_UP;
-                SendSwipeData(dir);
+                SendSwipeData(dir, isEnd);
             }
             else
             {
                 ESwipeDirection dir = m_touchDownPos.x - m_touchUpPos.x > 0 ? ESwipeDirection.Swipe_Left : ESwipeDirection.Swipe_Right;
-                SendSwipeData(dir);
+                SendSwipeData(dir, isEnd);
             }
 
             m_touchUpPos = m_touchDownPos;
@@ -130,13 +131,14 @@ public class SwipeController : MonoBehaviour
 
     // Once the swipe has been detected and it's ready, send the data.
     // The data sent is retrieved by the registered delegates.
-    private void SendSwipeData(ESwipeDirection dir)
+    private void SendSwipeData(ESwipeDirection dir, bool hasEnded)
     {
         SwipeInfo swipeInfo = new SwipeInfo()
         {
             SwipeDirection = dir,
             SwipeStartPos = m_touchDownPos,
-            SwipeEndPos = m_touchUpPos
+            SwipeEndPos = m_touchUpPos,
+            isEnd = hasEnded
         };
 
         OnSwipe(swipeInfo);

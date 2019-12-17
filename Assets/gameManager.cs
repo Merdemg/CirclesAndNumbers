@@ -30,10 +30,10 @@ public class gameManager : MonoBehaviour
     {
         if (info.SwipeDirection == ESwipeDirection.Swipe_Left)
         {
-            currentIncoming.RotateLeft();
+            //currentIncoming.RotateLeft();
         }else if (info.SwipeDirection == ESwipeDirection.Swipe_Right)
         {
-            currentIncoming.RotateRight();
+            //currentIncoming.RotateRight();
         }
     }
 
