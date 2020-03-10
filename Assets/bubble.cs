@@ -98,4 +98,9 @@ public class bubble : MonoBehaviour
 
         updateUI();
     }
+
+    public void GetDestroyed()
+    {
+        Destroy(this.gameObject);
+    }
 }

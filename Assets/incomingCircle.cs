@@ -53,10 +53,10 @@ public class incomingCircle : MonoBehaviour
     {
         transform.localScale = transform.localScale + (transform.localScale * Time.deltaTime * speed);
 
-        if (transform.localScale.x >= 1.05f)
-        {
-            FindObjectOfType<maincircle>().collide(this);
-        }
+        //if (transform.localScale.x >= 1.05f)
+        //{
+        //    FindObjectOfType<maincircle>().collide(this);
+        //}
     }
 
     public bubble[] getBubbles()
