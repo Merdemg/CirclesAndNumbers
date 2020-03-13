@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour
 {
+    [SerializeField] Avatar avatar;
     const int maxValue = 3;
     const int minValue = -4;
 
 
     [SerializeField] GameObject incCirclePrefab;
     [SerializeField] incomingCircle currentIncoming;
+
+    [SerializeField] float spawnTimer = 3f;
+    float spawnCounter = 0;
+
+    [SerializeField] float levelTime = 20f;
+    float levelTimeCounter = 0;
+
+    [SerializeField] int pointsRequired = 30;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +32,30 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        spawnCounter += Time.deltaTime;
+        if (spawnCounter >= spawnTimer)
+        {
+            spawnCounter = 0;
+            SpawnIncCircle();
+        }
+
+        levelTimeCounter += Time.deltaTime;
+        if(levelTimeCounter >= levelTime)
+        {
+            EndLevel();
+        }
+    }
+
+    void EndLevel()
+    {
+        if (avatar.GetPoints() >= pointsRequired)
+        {
+            // WIN
+        }
+        else
+        {
+            // LOSE
+        }
     }
 
     void GetSwipe(SwipeInfo info)

@@ -26,4 +26,9 @@ public class Avatar : MonoBehaviour
     {
         textBox.text = value.ToString();
     }
+
+    public int GetPoints()
+    {
+        return value;
+    }
 }
