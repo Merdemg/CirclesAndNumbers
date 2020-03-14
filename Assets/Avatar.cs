@@ -9,6 +9,7 @@ public class Avatar : MonoBehaviour
 {
     int value = 0;
     [SerializeField] TextMeshProUGUI textBox;
+    [SerializeField] gameManager manager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +19,7 @@ public class Avatar : MonoBehaviour
             value += b.getValue();
             UpdateUI();
             b.GetDestroyed();
+            manager.UpdateUI();
         }
 
     }

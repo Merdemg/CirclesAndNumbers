@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class gameManager : MonoBehaviour
 
     [SerializeField] int pointsRequired = 30;
 
+    [SerializeField] Image pointBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,8 @@ public class gameManager : MonoBehaviour
         currentIncoming = FindObjectOfType<incomingCircle>();
 
         SpawnIncCircle();
+
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -80,5 +85,20 @@ public class gameManager : MonoBehaviour
         }
 
         Debug.Log("spawnd");
+    }
+
+    public void UpdateUI()
+    {
+        float perc = (float)avatar.GetPoints() / (float)pointsRequired;
+
+        if(perc> 1)
+        {
+            perc = 1;
+        }else if (perc < 0)
+        {
+            perc = 0;
+        }
+
+        pointBar.transform.localScale = new Vector3(perc, 1,1);
     }
 }
