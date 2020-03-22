@@ -940,7 +940,7 @@ MonoBehaviour:
   currentIncoming: {fileID: 0}
   spawnTimer: 3
   levelTime: 20
-  pointsRequired: 30
+  pointsRequiredPerLevel: 20
   pointBar: {fileID: 178081957}
 --- !u!114 &1561779060
 MonoBehaviour:

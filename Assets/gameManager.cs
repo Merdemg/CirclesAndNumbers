@@ -16,11 +16,14 @@ public class gameManager : MonoBehaviour
     [SerializeField] float spawnTimer = 3f;
     float spawnCounter = 0;
 
+    int currentLevel = 1;
+    
+
     [SerializeField] float levelTime = 20f;
     float levelTimeCounter = 0;
 
-    [SerializeField] int pointsRequired = 30;
-
+    [SerializeField] int pointsRequiredPerLevel = 30;
+    int pointsRequired = 30;
     [SerializeField] Image pointBar;
 
     // Start is called before the first frame update
@@ -56,10 +59,15 @@ public class gameManager : MonoBehaviour
         if (avatar.GetPoints() >= pointsRequired)
         {
             // WIN
+            currentLevel++;
+            levelTimeCounter = 0;
+            pointsRequired += pointsRequiredPerLevel;
+            UpdateUI();
         }
         else
         {
             // LOSE
+            Time.timeScale = 0;
         }
     }
 

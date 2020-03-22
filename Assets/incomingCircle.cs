@@ -13,6 +13,9 @@ public class incomingCircle : MonoBehaviour
     float counter = 0;
     float prevAngle = 0;
 
+    [SerializeField] float lifeTime = 5f;
+    float lifeCounter = 0;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -46,6 +49,12 @@ public class incomingCircle : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             RotateLeft();
+        }
+
+        lifeCounter += Time.deltaTime;
+        if(lifeCounter >= lifeTime)
+        {
+            Destroy(this.gameObject);
         }
     }
 
