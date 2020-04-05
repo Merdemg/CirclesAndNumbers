@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -23,8 +24,10 @@ public class gameManager : MonoBehaviour
     float levelTimeCounter = 0;
 
     [SerializeField] int pointsRequiredPerLevel = 30;
-    int pointsRequired = 30;
+    int pointsRequired = 15;
     [SerializeField] Image pointBar;
+
+    [SerializeField] TextMeshProUGUI levelText;
 
     // Start is called before the first frame update
     void Start()
@@ -97,6 +100,8 @@ public class gameManager : MonoBehaviour
 
     public void UpdateUI()
     {
+        levelText.text = "Level " + currentLevel;
+
         float perc = (float)avatar.GetPoints() / (float)pointsRequired;
 
         if(perc> 1)

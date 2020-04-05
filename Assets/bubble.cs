@@ -83,6 +83,11 @@ public class bubble : MonoBehaviour
 
     public void SetValue(int v)
     {
+        if (v == 0)
+        {
+            Destroy(this.gameObject);
+        }
+
         value = v;
         updateUI();
     }
